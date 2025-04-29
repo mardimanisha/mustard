@@ -1,6 +1,12 @@
-# 🟡 MUSTARD
 
-A curated gallery of mustard-colored inspiration.
+# 🟡 MUSTARD Gallery Website
+
+![Next.js](https://img.shields.io/badge/Next.js-%23000000?style=flat&logo=next.js&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-%23000000?style=flat&logo=tailwind-css&logoColor=white)
+![Zustand](https://img.shields.io/badge/Zustand-%2315705C?style=flat&logo=redux&logoColor=white)
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+
+*A curated gallery of mustard-colored inspiration.*
 
 MUSTARD is a creative and dynamic image gallery that fetches and displays mustard-toned visuals in an animated moodboard layout. Built with modern web technologies like **Next.js**, **Tailwind CSS**, **Zustand**, and **Framer Motion**, it is both a frontend engineering exercise and a design-led project.
 
@@ -160,3 +166,5 @@ This project is licensed under the MIT License.
 ---
 
 *"If you enjoyed this project or found it useful, please ⭐ the repo and share it with your friends and fellow developers!"*
+
+
