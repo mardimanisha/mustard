@@ -13,7 +13,7 @@ MUSTARD is a creative and dynamic image gallery that fetches and displays mustar
 🧪 Live Project: [mustard-iota.vercel.app](https://mustard-iota.vercel.app)  
 📁 GitHub Repository: [github.com/mardimanisha/mustard](https://github.com/mardimanisha/mustard)
 
-![MUSTARD Moodboard Screenrecord](/assets/mustard.png)
+![MUSTARD Moodboard Screenshot](/assets/mustard.png)
 
 ---
 
