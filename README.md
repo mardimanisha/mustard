@@ -149,10 +149,8 @@ Contributions are welcome! 🚀
 
 ## 👩‍💻 Author  
 Manisha Mardi  
-Frontend Developer \| Builder \| Explorer  
-🔗 [Portfolio](https://manishamardi.dev)  
-🐦 [@mardimanisha](https://twitter.com/mardimanisha)  
-💼 [LinkedIn](https://linkedin.com/in/manishamardi)
+Frontend Developer \| Builder \| Explorer    
+💼 [LinkedIn](https://www.linkedin.com/in/manisha-mardi/)
 
 ---
 
