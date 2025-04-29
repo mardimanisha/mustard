@@ -4,9 +4,19 @@ import { Input } from "./ui/input"
 import { Search, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
-export default function Searchbar() {
+interface SearchbarProps {
+    onSearchSubmit: (keyword: string) => void;
+}
+
+const suggestionsList = [
+    "fashion", "travel", "interiors", "autumn", "sunset", "flowers", "architecture", "nature", "city", "abstract"
+];
+
+export default function Searchbar({onSearchSubmit}: SearchbarProps) {
     const [searchOpen, setSearchOpen] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
+    const [searchText, setSearchText] = useState('');
+    const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
     const inputRef = useRef<HTMLInputElement>(null);
 
     //Autofocus when opened
@@ -14,7 +24,39 @@ export default function Searchbar() {
         if (searchOpen && inputRef.current) {
             inputRef.current.focus();
         }
-    }, [searchOpen])
+    }, [searchOpen]);
+
+    useEffect(() => {
+        if (searchText.length > 0) {
+            const filtered = suggestionsList.filter(suggestion =>
+                suggestion.toLowerCase().includes(searchText.toLowerCase())
+            );
+
+            setFilteredSuggestions(filtered);
+        } else {
+            setFilteredSuggestions([]);
+        }
+    }, [searchText]);
+
+    const handleSubmit = () => {
+        if (searchText.trim() !== '') {
+            onSearchSubmit(searchText.trim());
+            setFilteredSuggestions([]);
+        }
+    }
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            handleSubmit();
+        }
+    }
+
+    const handleSuggestionClick = (suggestion: string) => {
+        onSearchSubmit(suggestion);
+        setSearchText('');
+        setFilteredSuggestions([]);
+    }
 
 
     return (
@@ -37,6 +79,9 @@ export default function Searchbar() {
                                 ref={inputRef}
                                 type="text"
                                 placeholder="Search..."
+                                value={searchText}
+                                onChange={(e) => setSearchText(e.target.value)}
+                                onKeyDown={handleKeyDown}
                                 className="text-sm rounded-sm focus:!outline-none focus:!ring-0 focus:!border-transparent border-muted bg-muted/50 backdrop-blur-sm placeholder:text-muted-foreground"
                             />
                         </motion.div>
@@ -71,8 +116,26 @@ export default function Searchbar() {
                 <Input
                     type="text"
                     placeholder="Search mustard moods..."
+                    value={searchText}
+                    onChange={(e) => setSearchText(e.target.value)}
+                    onKeyDown={handleKeyDown}
                     className="text-sm rounded-sm border-muted focus:!outline-none focus:!ring-0 focus:!border-transparent bg-muted/50 backdrop-blur-md placeholder:text-muted-foreground"
                 />
+
+                {/* Suggestions Dropdown */}
+                {filteredSuggestions.length > 0 && (
+                    <div className="absolute mt-1 w-full bg-background rounded-md shadow-md z-10">
+                        {filteredSuggestions.map((suggestion, index) => (
+                            <div
+                                key={index}
+                                className="p-2 cursor-pointer hover:bg-muted text-sm"
+                                onClick={() => handleSuggestionClick(suggestion)}
+                            >
+                                {suggestion}
+                            </div>
+                        ))}
+                    </div>
+                )}
             </motion.div>
         </div>
     )

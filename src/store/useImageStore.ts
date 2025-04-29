@@ -6,6 +6,8 @@ interface ImageState {
   page: number;
   isLoading: boolean;
   isFetchingNextPage: boolean;
+  searchKeyword: string;
+  setSearchKeyword: (keyword: string) => void;
   setImages: (images: Photo[]) => void;
   addImages: (images: Photo[]) => void;
   setLoading: (loading: boolean) => void;
@@ -19,6 +21,8 @@ export const useImageStore = create<ImageState>((set) => ({
   page: 1,
   isLoading: true,
   isFetchingNextPage: false,
+  searchKeyword: "",
+  setSearchKeyword: (keyword) => set({ searchKeyword: keyword }),
   setImages: (images) => set({ images }),
   addImages: (newImages) =>
     set((state) => ({ images: [...state.images, ...newImages] })),

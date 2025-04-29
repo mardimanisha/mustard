@@ -17,6 +17,7 @@ const breakpointColumnsObj = {
 export default function Moodboard() {
   const { images, page, isLoading, isFetchingNextPage, incrementPage } = useImageStore();
   const observer = useRef<IntersectionObserver | null>(null);
+  
 
   const lastImageElementRef = useCallback((node: HTMLDivElement | null) => {
     if (isFetchingNextPage) return;

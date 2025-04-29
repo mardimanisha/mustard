@@ -4,9 +4,9 @@ import { useImageStore } from "@/store/useImageStore";
 import { useEffect } from "react";
 
 export default function ImageFetcher() {
-  const { setImages, addImages, setLoading, setFetchingNextPage } = useImageStore();
+  const { setImages, addImages, searchKeyword, setLoading, setFetchingNextPage } = useImageStore();
 
-  async function fetchImages(pageToFetch: number) {
+  async function fetchImages(pageToFetch: number, keyword?: string) {
     try {
       if (pageToFetch === 1) {
         setLoading(true);
@@ -14,7 +14,7 @@ export default function ImageFetcher() {
         setFetchingNextPage(true);
       }
 
-      const res = await fetch(`/api/pexels?page=${pageToFetch}`);
+      const res = await fetch(`/api/pexels?page=${pageToFetch}${keyword ? `&query=${keyword}` : ""}`);
       if (!res.ok) {
         throw new Error("Failed to fetch images");
       }
@@ -39,8 +39,9 @@ export default function ImageFetcher() {
   }
 
   useEffect(() => {
-    fetchImages(1);
-  }, []);
+    fetchImages(1, searchKeyword);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchKeyword]);
 
   return null;
 }

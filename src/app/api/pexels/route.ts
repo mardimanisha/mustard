@@ -7,7 +7,8 @@ import { env } from "@/lib/env";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const query = searchParams.get("query") || "mustard color"; // Default if no query
+  const originalQuery = searchParams.get("query");
+  const query = originalQuery ? `${originalQuery} mustard` : "mustard color";
   const page = searchParams.get("page") || "1";
   const perPage = searchParams.get("per_page") || "20";
 
