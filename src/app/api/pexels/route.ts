@@ -7,7 +7,7 @@ import { env } from "@/lib/env";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const query = searchParams.get("query") || "nature"; // Default if no query
+  const query = searchParams.get("query") || "mustard color"; // Default if no query
   const page = searchParams.get("page") || "1";
   const perPage = searchParams.get("per_page") || "20";
 
@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
   try {
     const response = await fetch(url, {
       headers: {
-        Authorization: env.NEXT_PUBLIC_PEXELS_ACCESS_KEY, // SAFE now
+        Authorization: env.NEXT_PUBLIC_PEXELS_ACCESS_KEY,
       },
     });
 

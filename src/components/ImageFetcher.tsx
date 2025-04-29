@@ -14,7 +14,7 @@ export default function ImageFetcher() {
         setFetchingNextPage(true);
       }
 
-      const res = await fetch(`/api/pexels?query=curated&page=${pageToFetch}`);
+      const res = await fetch(`/api/pexels?page=${pageToFetch}`);
       if (!res.ok) {
         throw new Error("Failed to fetch images");
       }

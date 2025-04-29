@@ -35,7 +35,7 @@ export default function Moodboard() {
     if (page === 1) return;
     const fetchNextImages = async () => {
       try {
-        const res = await fetch(`/api/pexels?query=curated&page=${page}`);
+        const res = await fetch(`/api/pexels?page=${page}`);
         if (!res.ok) {
           throw new Error("Failed to fetch images");
         }
