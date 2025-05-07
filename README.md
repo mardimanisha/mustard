@@ -130,29 +130,6 @@ This project helped me:
 
 ---
 
-## 🤝 Contributing
-Contributions are welcome! 🚀
-1. **Fork** the repository  
-2. **Create a branch**  
-   ```bash
-   git checkout -b feature-your-feature-name
-   ```
-3. Commit your changes
-   ```bash
-   git commit -m "Add your feature"
-   ```
-4. Push to the branch
-   ```bash
-   git push origin feature-your-feature-name
-   ```
-5. Open a Pull Request
-
----
-
-*"Let’s build something amazing together! 💛"*
-
---- 
-
 ## 👩‍💻 Author  
 Manisha Mardi  
 Frontend Developer \| Builder \| Explorer    
