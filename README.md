@@ -32,7 +32,6 @@ MUSTARD is a creative and dynamic image gallery that fetches and displays mustar
 - [Folder Structure](#folder-structure)
 - [Learnings](#learnings)
 - [Future Improvements](#future-improvements)
-- [Contributing](#contributing)
 - [Author](#author)
 - [License](#license)
 
